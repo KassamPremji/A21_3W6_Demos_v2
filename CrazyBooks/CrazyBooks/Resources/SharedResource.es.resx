@@ -117,22 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Biography" xml:space="preserve">
+    <value>Biografia</value>
+  </data>
+  <data name="Book" xml:space="preserve">
+    <value>Entregado</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Primer Nombre</value>
+  </data>
+  <data name="ISBN" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>apellido</value>
+  </data>
   <data name="MaxCaractersValidation" xml:space="preserve">
-    <value>{0} doit comporter  {1} caractères maximum.</value>
+    <value>el {0} debe tener entre {1} y {2} caracteres.</value>
+  </data>
+  <data name="MinMaxCaractersValidation" xml:space="preserve">
+    <value>{0} peut etre composé de  {1} à {2} caractères.</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nom</value>
+    <value>Apellido</value>
+  </data>
+  <data name="NameSubject" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Premo</value>
+  </data>
+  <data name="PublishedDate" xml:space="preserve">
+    <value>Fecha de publicacion</value>
   </data>
   <data name="Publisher" xml:space="preserve">
-    <value>Éditeur</value>
+    <value>Editor</value>
   </data>
   <data name="PublisherSite" xml:space="preserve">
-    <value>Site de l'éditeur</value>
+    <value>Editor sitio</value>
   </data>
   <data name="RequiredValidation" xml:space="preserve">
-    <value>{0} est obligatoire.</value>
+    <value>la {0} es requerida.</value>
   </data>
   <data name="Speciality" xml:space="preserve">
-    <value>Spécialité</value>
+    <value>Especialidad</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titulo</value>
   </data>
 </root>

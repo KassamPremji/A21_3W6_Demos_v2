@@ -11,7 +11,7 @@ namespace CrazyBooks_Models.Models
     [Key]
     public int Id { get; set; }
 
-    [Display(Name = "Name")]
+    [Display(Name = "NameSubject")]
     [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
     [StringLength(25, MinimumLength = 5, ErrorMessage = "MinMaxCaractersValidation")]
     public string Name { get; set; }

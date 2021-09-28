@@ -11,6 +11,7 @@ using CrazyBooks_DataAccess.Repository.IRepository;
 
 namespace CrazyBooks.Controllers
 {
+  // Utilisation des méthodes asynchrones
   public class SubjectController : Controller
   {
     private readonly IUnitOfWork _unitOfWork;
@@ -21,9 +22,9 @@ namespace CrazyBooks.Controllers
       _unitOfWork = unitOfWork;
       _logger = logger;
     }
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-      IEnumerable<Subject> SubjectList = _unitOfWork.Subject.GetAll();
+      IEnumerable<Subject> SubjectList = await _unitOfWork.Subject.GetAllAsync();
 
       return View(SubjectList);
     }
@@ -36,12 +37,12 @@ namespace CrazyBooks.Controllers
 
     //POST CREATE
     [HttpPost]
-    public IActionResult Create(Subject subject)
+    public async Task<IActionResult> Create(Subject subject)
     {
       if (ModelState.IsValid)
       {
         // Ajouter à la BD
-        _unitOfWork.Subject.Add(subject);
+       await _unitOfWork.Subject.AddAsync(subject);
      
         _unitOfWork.Save();
         return RedirectToAction(nameof(Index));

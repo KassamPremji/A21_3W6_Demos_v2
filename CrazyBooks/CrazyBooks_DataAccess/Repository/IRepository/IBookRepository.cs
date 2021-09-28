@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CrazyBooks_DataAccess.Repository.IRepository
 {
-  public interface IBookRepository:IRepository<Book>
+  public interface IBookRepository: IRepositoryAsync<Book>
   {
     void Update(Book book);
   }

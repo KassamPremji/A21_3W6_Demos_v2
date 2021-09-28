@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CrazyBooks_DataAccess.Repository.IRepository
 {
-  public interface IPublisherRepository:IRepository<Publisher>
+  public interface IPublisherRepository: IRepositoryAsync<Publisher>
   {
     void Update(Publisher publisher);
   }

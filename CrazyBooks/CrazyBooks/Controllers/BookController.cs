@@ -21,25 +21,29 @@ namespace CrazyBooks.Controllers
       _unitOfWork = unitOfWork;
       _logger = logger;
     }
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-      IEnumerable<Book> objList = _unitOfWork.Book.GetAll(includeProperties:"Publisher,Subject");
+      IEnumerable<Book> objList = await _unitOfWork.Book.GetAllAsync(includeProperties:"Publisher,Subject");
 
       return View(objList);
     }
 
     //GET CREATE
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
+      IEnumerable<Subject> SubList = await _unitOfWork.Subject.GetAllAsync();
+
+      IEnumerable<Publisher> PubList = await _unitOfWork.Publisher.GetAllAsync();
+
       BookVM bookVM = new BookVM()
       {
         Book = new Book(),
-        SubjectList = _unitOfWork.Subject.GetAll().Select(i => new SelectListItem
+        SubjectList =  SubList.Select(i => new SelectListItem
         {
           Text = i.Name,
           Value = i.Id.ToString()
         }),
-        PublisherList = _unitOfWork.Publisher.GetAll().Select(i => new SelectListItem
+        PublisherList = PubList.Select(i => new SelectListItem
         {
           Text = i.Name,
           Value = i.Id.ToString()
@@ -51,12 +55,12 @@ namespace CrazyBooks.Controllers
     //POST CREATE
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create(BookVM bookVM)
+    public async Task<IActionResult> Create(BookVM bookVM)
     {
       if (ModelState.IsValid)
       {
         // Ajouter à la BD
-        _unitOfWork.Book.Add(bookVM.Book);
+       await _unitOfWork.Book.AddAsync(bookVM.Book);
       }
 
       _unitOfWork.Save();

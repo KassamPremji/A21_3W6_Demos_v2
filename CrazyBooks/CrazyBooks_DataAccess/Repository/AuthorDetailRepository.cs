@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CrazyBook_DataAccess.Repository
 {
-  public class AuthorDetailRepository : Repository<AuthorDetail>, IAuthorDetailRepository
+  public class AuthorDetailRepository : RepositoryAsync<AuthorDetail>, IAuthorDetailRepository
   {
     private readonly CrazyBooksDbContext _db;
 

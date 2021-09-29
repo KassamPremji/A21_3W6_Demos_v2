@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CrazyBooks_DataAccess.Repository
 {
-  public class AuthorRepository : Repository<Author>, IAuthorRepository
+  public class AuthorRepository : RepositoryAsync<Author>, IAuthorRepository
   {
     private readonly CrazyBooksDbContext _db;
 

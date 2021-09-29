@@ -17,7 +17,7 @@ namespace CrazyBooks_DataAccess.Repository.IRepository
         string includeProperties = null
         );
 
-    Task<T> GetFirstOrDefaultAsync(
+    Task<T> FirstOrDefaultAsync(
         Expression<Func<T, bool>> filter = null,
         string includeProperties = null
         );

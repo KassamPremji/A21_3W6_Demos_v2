@@ -56,7 +56,7 @@ namespace CrazyBooks_DataAccess.Repository
       return await query.ToListAsync();
     }
 
-    public async Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> filter = null, string includeProperties = null)
+    public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> filter = null, string includeProperties = null)
     {
       IQueryable<T> query = dbSet;
 

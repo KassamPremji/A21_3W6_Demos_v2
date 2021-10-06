@@ -87,7 +87,7 @@ namespace CrazyBooks_DataAccess.Repository
     // structure utilisé pour garder standard et distinguer le Repo du Repo Async
     public async Task RemoveAsync(T entity)
     {
-      dbSet.Remove(entity);
+       dbSet.Remove(entity);
     }
 
     // pas de Async pour RemoveRange

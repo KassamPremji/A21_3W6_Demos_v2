@@ -1,4 +1,5 @@
-﻿using CrazyBooks_Models.Models;
+﻿using CrazyBooks_DataAccess.Repository.IRepository;
+using CrazyBooks_Models.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,19 +15,23 @@ namespace CrazyBooks.Controllers
 {
   public class HomeController : Controller
   {
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<HomeController> _logger;
     private readonly IStringLocalizer<HomeController> _localizer;
 
-    public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer)
+    public HomeController(IUnitOfWork unitOfWork, ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer)
     {
+      _unitOfWork = unitOfWork; 
       _logger = logger;
       _localizer = localizer;
 
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-      return View();
+      IEnumerable<Book> objList = await _unitOfWork.Book.GetAllAsync(includeProperties: "Publisher,Subject");
+
+      return View(objList);
     }
 
     public IActionResult Privacy()

@@ -28,6 +28,8 @@ namespace CrazyBooks_Models.Models
     [DisplayFormat(DataFormatString = "{0:c2}")] // Monetaire (currency)
     public double Price { get; set; }
 
+    public bool Promo { get; set; } = false;
+
     // Relation 1 à plusieurs, obligatoire
     [ForeignKey("Subject")]
     public int Subject_Id { get; set; }

@@ -32,8 +32,8 @@ namespace CrazyBooks.Controllers
     {
       HomeVM homeVM = new HomeVM()
       {
-        Books = _unitOfWork.Book.GetAll(includeProperties:"Publisher,Subject"),
-        Subjects = _unitOfWork.Subject.GetAll()
+        Books = await _unitOfWork.Book.GetAllAsync(includeProperties:"Publisher,Subject"),
+        Subjects = await _unitOfWork.Subject.GetAllAsync()
       };
       return View(homeVM);
     }

@@ -28,11 +28,9 @@ namespace CrazyBooks_Models.Models
     [DisplayFormat(DataFormatString = "{0:c2}")] // Monetaire (currency)
     public double Price { get; set; }
 
-<<<<<<< Updated upstream
     public bool Promo { get; set; } = false;
-=======
+
     public string Resume { get; set; }
->>>>>>> Stashed changes
 
     // Relation 1 à plusieurs, obligatoire
     [ForeignKey("Subject")]

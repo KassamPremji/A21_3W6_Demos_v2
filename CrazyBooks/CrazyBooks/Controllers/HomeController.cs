@@ -1,5 +1,6 @@
 ﻿using CrazyBooks_DataAccess.Repository.IRepository;
 using CrazyBooks_Models.Models;
+using CrazyBooks_Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
@@ -29,9 +30,12 @@ namespace CrazyBooks.Controllers
 
     public async Task<IActionResult> Index()
     {
-      IEnumerable<Book> objList = await _unitOfWork.Book.GetAllAsync(includeProperties: "Publisher,Subject");
-
-      return View(objList);
+      HomeVM homeVM = new HomeVM()
+      {
+        Books = _unitOfWork.Book.GetAll(includeProperties:"Publisher,Subject"),
+        Subjects = _unitOfWork.Subject.GetAll()
+      };
+      return View(homeVM);
     }
 
     public IActionResult Privacy()

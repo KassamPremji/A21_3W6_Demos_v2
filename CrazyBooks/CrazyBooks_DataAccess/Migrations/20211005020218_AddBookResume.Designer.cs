@@ -4,14 +4,16 @@ using CrazyBooks_DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CrazyBooks_DataAccess.Migrations
 {
     [DbContext(typeof(CrazyBooksDbContext))]
-    partial class CrazyBooksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211005020218_AddBookResume")]
+    partial class AddBookResume
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,9 +56,6 @@ namespace CrazyBooks_DataAccess.Migrations
                     b.Property<int>("Book_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("PCRoyalties")
-                        .HasColumnType("int");
-
                     b.HasKey("Author_Id", "Book_Id");
 
                     b.HasIndex("Book_Id");
@@ -97,9 +96,6 @@ namespace CrazyBooks_DataAccess.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(10,2)");
-
-                    b.Property<bool>("Promo")
-                        .HasColumnType("bit");
 
                     b.Property<DateTime>("PublishedDate")
                         .HasColumnType("datetime2");

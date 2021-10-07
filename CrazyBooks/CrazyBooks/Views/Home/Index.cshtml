@@ -1,8 +1,14 @@
+<<<<<<< Updated upstream
 ﻿@model IEnumerable<CrazyBooks_Models.Models.Book>
 @{
+=======
+﻿@{
+>>>>>>> Stashed changes
   ViewData["Title"] = "Home Page";
 }
+@model CrazyBooks_Models.ViewModels.HomeVM
 
+<<<<<<< Updated upstream
 <div class="text-center">
   <h1 class="display-4">Welcome everybody!</h1>
 </div>
@@ -55,4 +61,42 @@
   else
   {
     <p>No book exists...</p>}
+=======
+<div class="container">
+  <div class="text-center">
+    <button class="btn btn-dark filter-button" data-filter="all">All</button>
+    @foreach (var obj in Model.Subjects)
+    {
+      <button class="btn btn-outline-secondary filter-button" data-filter="@obj.Name.Replace(' ','_')">
+        @obj.Name
+      </button>}
+  </div>
+  <br />
+  <div class="row">
+    @foreach (var book in Model.Books)
+    {
+      <partial name="_BookCard" model="book" />// Affiche tous les Books
+    }
+  </div>
+>>>>>>> Stashed changes
 </div>
+
+@section Scripts{
+  <script>
+  $(document).ready(function () {
+
+      $(".filter-button").click(function () {
+
+        var value = $(this).attr('data-filter');
+        if (value == "all") {
+          $('.filter').show('1000');
+        }
+        else {
+          $(".filter").not('.' + value).hide('3000');
+          $('.filter').filter('.' + value).show('3000');
+
+        }
+      });
+
+    });</script>
+}

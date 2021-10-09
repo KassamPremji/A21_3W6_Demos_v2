@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrazyBooks_DataAccess", "Cr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrazyBooks_Models", "CrazyBooks_Models\CrazyBooks_Models.csproj", "{C4C82E1C-2B25-4D8D-9805-096BA084D047}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyBooks_Models_Tests", "CrazyBooks_Models_Tests\CrazyBooks_Models_Tests.csproj", "{95E344A2-6FF9-414B-9544-73CC77BC48C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrazyBooks_Models_Tests", "CrazyBooks_Models_Tests\CrazyBooks_Models_Tests.csproj", "{95E344A2-6FF9-414B-9544-73CC77BC48C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

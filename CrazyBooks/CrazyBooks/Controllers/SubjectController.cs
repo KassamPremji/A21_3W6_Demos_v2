@@ -49,5 +49,66 @@ namespace CrazyBooks.Controllers
       }
       return this.View(subject);
     }
-  }
+
+        //GET - EDIT
+        public async Task<IActionResult> Edit(int? id)
+        {
+            Subject subject = new Subject();
+                subject = await _unitOfWork.Subject.GetAsync(id.GetValueOrDefault());
+                if (subject == null)
+                {
+                    return NotFound();
+                }
+                return View(subject);
+        }
+
+        //POST - EDIT
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Subject subject)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.Subject.Update(subject);
+                _unitOfWork.Save();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(subject);
+        }
+
+        //GET DELETE
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = await _unitOfWork.Subject.GetAsync(id.GetValueOrDefault());
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        //POST DELETE
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> DeletePost(int? id)
+        {
+            var obj = await _unitOfWork.Subject.GetAsync(id.GetValueOrDefault());
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            await _unitOfWork.Subject.RemoveAsync(obj);
+            _unitOfWork.Save();
+
+            return RedirectToAction("Index");
+        }
+
+    }
 }

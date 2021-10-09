@@ -159,6 +159,9 @@
   <data name="Publisher" xml:space="preserve">
     <value>Éditeur</value>
   </data>
+  <data name="PublisherName" xml:space="preserve">
+    <value>Éditeur</value>
+  </data>
   <data name="PublisherSite" xml:space="preserve">
     <value>Site de l'éditeur</value>
   </data>

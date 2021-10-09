@@ -6,7 +6,7 @@
       <h2 class="text-primary">Publishers' List</h2>
     </div>
     <div class="col-2 text-right">
-      <a asp-controller="Publisher" asp-action="Create" class="btn btn-success">
+      <a asp-controller="Publisher" asp-action="Upsert" class="btn btn-success">
         Create New Publisher
       </a>
     </div>
@@ -39,12 +39,12 @@
           <td width="20%">@item.PublisherSite</td>
           <td width="25%" class="text-center">
             <div class="w-75 btn-group" role="group">
-              <a class="btn btn-secondary mx-2" asp-controller="Publisher" asp-action="Detail" asp-route-id="@item.Id" >
+              <a class="btn btn-secondary mx-2" asp-controller="Publisher" asp-action="Detail" asp-route-id="@item.Id">
                 Details
-              </a><a class="btn btn-warning mx-2">
+              </a><a class="btn btn-warning mx-2"  asp-controller="Publisher" asp-action="Upsert" asp-route-id="@item.Id">
                 Edit
               </a>
-              <a class="btn btn-danger mx-2">
+              <a class="btn btn-danger mx-2"  asp-controller="Publisher" asp-action="Delete" asp-route-id="@item.Id">
                 Delete
               </a>
             </div>

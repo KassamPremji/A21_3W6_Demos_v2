@@ -159,6 +159,9 @@
   <data name="Publisher" xml:space="preserve">
     <value>Editor</value>
   </data>
+  <data name="PublisherName" xml:space="preserve">
+    <value>Editor Apellido</value>
+  </data>
   <data name="PublisherSite" xml:space="preserve">
     <value>Editor sitio</value>
   </data>

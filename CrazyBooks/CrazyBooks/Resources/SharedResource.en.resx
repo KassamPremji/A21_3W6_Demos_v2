@@ -144,9 +144,6 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="NamePublished" xml:space="preserve">
-    <value>Publisher</value>
-  </data>
   <data name="NameSubject" xml:space="preserve">
     <value>Subject</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="Publisher" xml:space="preserve">
     <value>Publisher</value>
+  </data>
+  <data name="PublisherName" xml:space="preserve">
+    <value>Publisher Name</value>
   </data>
   <data name="PublisherSite" xml:space="preserve">
     <value>Publisher Site</value>

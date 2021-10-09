@@ -28,11 +28,10 @@ namespace CrazyBooks.Controllers
       return View(objList);
     }
 
-    //GET CREATE
-    public async Task<IActionResult> Create()
+    //GET UPSERT
+    public async Task<IActionResult> Upsert(int? id)
     {
       IEnumerable<Subject> SubList = await _unitOfWork.Subject.GetAllAsync();
-
       IEnumerable<Publisher> PubList = await _unitOfWork.Publisher.GetAllAsync();
 
       BookVM bookVM = new BookVM()
@@ -49,22 +48,38 @@ namespace CrazyBooks.Controllers
           Value = i.Id.ToString()
         })
       };
-      return View(bookVM);
+        if (id == null)
+        {
+            //this is for create
+            return View(bookVM);
+        }
+            //this is for edit
+            bookVM.Book = await _unitOfWork.Book.GetAsync(id.GetValueOrDefault());
+        if (bookVM.Book == null)
+        {
+            return NotFound();
+        }
+        return View(bookVM);
     }
 
     //POST CREATE
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(BookVM bookVM)
+    public async Task<IActionResult> Upsert(BookVM bookVM)
     {
-      if (ModelState.IsValid)
-      {
-        // Ajouter à la BD
-       await _unitOfWork.Book.AddAsync(bookVM.Book);
-      }
-
-      _unitOfWork.Save();
-      return RedirectToAction(nameof(Index));
+        if(bookVM.Book.Id == 0)
+        {
+        //this is create
+        await _unitOfWork.Book.AddAsync(bookVM.Book);
+        }
+        else
+        {
+        //this is an update
+        _unitOfWork.Book.Update(bookVM.Book);
+        }
+        _unitOfWork.Save();
+        return RedirectToAction(nameof(Index));
     }
+
   }
 }

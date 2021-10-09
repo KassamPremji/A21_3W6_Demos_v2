@@ -28,12 +28,14 @@ namespace CrazyBooks_Models.Models
     [DisplayFormat(DataFormatString = "{0:c2}")] // Monetaire (currency)
     public double Price { get; set; }
 
+    [Display(Name = "Promotion")]
     public bool Promo { get; set; } = false;
-
+    [Display(Name = "Resume")]
     public string Resume { get; set; }
 
-    // Relation 1 à plusieurs, obligatoire
-    [ForeignKey("Subject")]
+        [Display(Name = "Subject")]
+        // Relation 1 à plusieurs, obligatoire
+        [ForeignKey("Subject")]
     public int Subject_Id { get; set; }
     //Propriété de navigation 1 à plusieurs, côté 1
     public Subject Subject { get; set; }
@@ -42,8 +44,9 @@ namespace CrazyBooks_Models.Models
     [DataType(DataType.Date)] //Mettre aussi le type de input
     public DateTime PublishedDate { get; set; }
 
-    // Relation 1 à plusieurs, obligatoire
-    [ForeignKey("Publisher")]
+        [Display(Name = "Publisher")]
+        // Relation 1 à plusieurs, obligatoire
+        [ForeignKey("Publisher")]
     public int Publisher_Id { get; set; }
     //Propriété de navigation 1 à plusieurs, côté 1
     public Publisher Publisher { get; set; }

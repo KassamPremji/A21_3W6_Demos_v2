@@ -153,6 +153,9 @@
   <data name="Price" xml:space="preserve">
     <value>Prix</value>
   </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
   <data name="PublishedDate" xml:space="preserve">
     <value>Date de publication</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="RequiredValidation" xml:space="preserve">
     <value>{0} est obligatoire.</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Resumé</value>
   </data>
   <data name="Speciality" xml:space="preserve">
     <value>Spécialité</value>

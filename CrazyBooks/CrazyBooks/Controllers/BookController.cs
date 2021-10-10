@@ -62,7 +62,7 @@ namespace CrazyBooks.Controllers
         return View(bookVM);
     }
 
-    //POST CREATE
+    //POST Upsert
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Upsert(BookVM bookVM)
@@ -81,5 +81,39 @@ namespace CrazyBooks.Controllers
         return RedirectToAction(nameof(Index));
     }
 
-  }
+        //GET DELETE
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = await _unitOfWork.Book.GetAsync(id.GetValueOrDefault());
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        //POST DELETE
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> DeletePost(int? id)
+        {
+            var obj = await _unitOfWork.Book.GetAsync(id.GetValueOrDefault());
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            await _unitOfWork.Book.RemoveAsync(obj);
+            _unitOfWork.Save();
+
+            return RedirectToAction("Index");
+        }
+
+    }
 }

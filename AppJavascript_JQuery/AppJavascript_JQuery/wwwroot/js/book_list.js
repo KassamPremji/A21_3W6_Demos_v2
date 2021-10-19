@@ -1,8 +1,3 @@
-////let $ = function (id) {
-////	return document.getElementById(id);
-////};
-
-
 window.onload = function () {
 let listNode, imageNode;
 

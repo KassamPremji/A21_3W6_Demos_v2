@@ -33,6 +33,11 @@ namespace AppJavascript_JQuery.Controllers
       return View();
     }
 
+    public IActionResult Demo3()
+    {
+      return View();
+    }
+
     public IActionResult Privacy()
     {
       return View();

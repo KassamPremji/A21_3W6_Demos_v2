@@ -1,0 +1,36 @@
+﻿@{ Layout = null; }
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Selectors et Filters</title>
+  <link rel="stylesheet" href="~/css/C06_Demo_2.css" />
+  <script src="../../../../libraries/jquery-3.3.1.js" type="text/javascript"></script>
+  <script src="~/js/C06_Demo_2.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <h1 id="intro">Selectors et Filters</h1>
+  <h2>Dans le fichier JS, commentez et décommentez chaque ligne une par une pour tester</h2>
+  <div id="content">
+    <p>Selection des éléments grâce aux <em>selectors</em> et aux  <em>filters</em>.</p>
+
+    <h2 class="selectors">Selectors</h2>
+    <div id="selectorsPart">
+      <p>Les <em>selectors</em> utilisent la synthaxe du CSS, ils sont donc facile à utiliser.</p>
+      <p>Par exemple, <code>$("p")</code> sélectionnera toutes les balises de paragraphe dans un document et les renverra sous forme de liste afin qu'elles soient manipulées.</p>
+      <p>Autre exemple, <code>$("h1")</code> sélectionnera toutes les balises de titre1 dans un document et les renverra sous forme de liste afin qu'elles soient manipulées.</p>
+      <p>Pour cibler un élément précis, nous utilisons le ID. Par exemple, <code>$("#intro")</code> sélectionnera le titre 1 de cette page.</p>
+    </div>
+    <h2 class="filters">Filters</h2>
+    <div id="filtersPart">
+      <p><strong>Premier P des filters</strong> filtres permettent d'affiner davantage les résultats renvoyés par les sélecteurs.</p>
+      <p><strong>Deuxième P des filters</strong> Par exemple, <code>$("p:first")</code> sélectionnera le premier paragraphe de l'ensemble renvoyé à partir de <code>$("p")</code>.</p>
+      <p><strong>Troisième P des filters</strong> Par exemple, <code>$("p:even")</code> sélectionnera le tous les paragraphes de l'ensemble renvoyé à partir de <code>$("p")</code>. Attention: l'index commence à 0.</p>
+      <p class="exclude"><strong>Quatrième P des filters</strong> Par exemple, <code>$("p not(".exclude")")</code> sélectionnera le tous les paragraphes de l'ensemble renvoyé à partir de <code>$("p")</code> sauf celui-ci puisque la class <em>exclude</em> lui est attribué.</p>
+      <p><strong>Cinquième P des filters</strong> Ils existent plusieurs autres <em>filters</em>, à vous de les découvrir.</p>
+    </div>
+  </div>
+</body>
+
+</html>
